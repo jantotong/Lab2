@@ -71,7 +71,7 @@ public:
 	}
 
 	//print last element of stack
-	void 	void printLast()
+	void printLast()
 	{
 		cout << getLast() << endl;
 	}
