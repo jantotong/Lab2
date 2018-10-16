@@ -13,7 +13,7 @@ public:
 	//Constructors
 	Stack()
 	{
-		Linkedlist::Linkedlist(); //create and empty linklist using constructor of base class (LinkedList)
+		Linkedlist::Linkedlist(); //create and empty linklist using constructor of base class
 	}
 
 	//Copy Constructor
@@ -46,7 +46,7 @@ public:
 	//Prints stack from top to bottom
 	void printStacks()
 	{
-		for (int i = 1; i < getCount() + 1; i++)
+		for (int i = 1; i < getSize() + 1; i++)
 		{
 			cout << getEntry(i) << endl;
 		}
