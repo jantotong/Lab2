@@ -102,7 +102,7 @@ public:
 	}
 
 	//Add anywhere
-	bool Addanywhere(int newPosition, const T& newEntry)
+	bool Add(int newPosition, const T& newEntry)
 	{
 		//Check if item exist in position
 		bool PositionExist = (newPosition >= 1) && (newPosition <= (headNode.getItemCount()) + 1);
@@ -131,7 +131,7 @@ public:
 				previousPointer->setNext(newNodePointer);
 			}
 
-			//Total amount of entries+1; used for later's method of entries ( count of items in the list)
+			//Total amount of entries+1; used for future methods
 			headNode.setItemCount(headNode.getItemCount() + 1);
 
 			//Setting tail pointer
@@ -144,13 +144,13 @@ public:
 	//Adding to first of chain
 	bool AddFirst(const T& newEntry)
 	{
-		return Addanywhere(1, newEntry);
+		return Add(1, newEntry);
 	}
 
 	//Adding to last of chain
 	bool AddLast(const T& newEntry)
 	{
-		return Addanywhere(headNode.getItemCount() + 1, newEntry);
+		return Add(headNode.getItemCount() + 1, newEntry);
 	}
 
 	//Delete anywhere
@@ -200,7 +200,7 @@ public:
 		return PositionExist;
 	}
 
-	//Removes first entry 
+	//Removes first entry; used for pop
 	bool removeFirst()
 	{
 		return remove(1);
@@ -224,7 +224,7 @@ public:
 	//Find anywhere
 	T getEntry(int position)
 	{
-		//Variable to check if position of entry to get is within bounds
+		//Check if chain exist
 		bool PositionExist = (position >= 1) && (position <= headNode.getItemCount());
 
 		if (PositionExist)
