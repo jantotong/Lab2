@@ -238,23 +238,5 @@ public:
 			throw NoExist;
 		}
 	}
-
-	//Sets an entry
-	void setEntry(int position, const T& newEntry)
-	{
-		//Variable to check if position of entry to set is within bounds
-		bool PositionExist = (position >= 1) && (position <= headNode.getItemCount());
-
-		if (PositionExist)
-		{
-			Node<T>* entryNodePointer = getNodeAt(position);
-			entryNodePointer->setItem(newEntry);
-		}
-		else
-		{
-			string outOfBounds = "setEntry() called with invalid position or empty list.\n";
-			throw outOfBounds;
-		}
-	}
 };
 #endif
