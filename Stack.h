@@ -13,7 +13,7 @@ public:
 	//Constructors
 	Stack()
 	{
-		Linkedlist::Linkedlist(); //create and empty linklist using constructor of base class
+		Linkedlist::Linkedlist(); //create and empty linklist using constructor of base class (LinkedList)
 	}
 
 	//Copy Constructor
