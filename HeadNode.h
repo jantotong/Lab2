@@ -19,7 +19,7 @@ public:
 		last = nullptr; //last doesnt have any to refer to
 	}
 
-	HeadNode(const int &localItemCount) 
+	HeadNode(const int &localItemCount)
 	{
 		ItemCount = localItemCount;
 	}
