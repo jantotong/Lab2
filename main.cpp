@@ -27,6 +27,7 @@ int main()
    show that running a list function on a stack creates an error comment it out
    //stack.showLast() ---error
    
-   
+   int x = intStack.pop();
+   cout<<x;
   */
 }
