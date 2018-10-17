@@ -53,7 +53,7 @@ public:
 			cout << getEntry(i) << endl;
 		}
 	}
-	
+
 	//print first element of stack
 	void stackTop()
 	{
