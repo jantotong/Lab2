@@ -36,8 +36,6 @@ int main()
 	Stack<int> *stackIntptr;
 	Stack<Dollar*> *stackCurrency;
 
-	
-	//
 	stackIntptr = new Stack<int>();
 	stackStringptr = new Stack<string>();
 	stackCurrency = new Stack<Dollar*>();
