@@ -30,21 +30,25 @@ int main()
 	cout << "Result: " << listptr->getEntry(2) << endl;
 	//end of linkedlist
 
-	/*
+	
 	//beggining of stack
 	Stack<string> *stackStringptr;
 	Stack<int> *stackIntptr;
 	Stack<Dollar*> *stackCurrency;
 
+	
 	//
 	stackIntptr = new Stack<int>();
 	stackStringptr = new Stack<string>();
 	stackCurrency = new Stack<Dollar*>();
+	
+	/*
 	cout << "Will now push A,B,C,D " << endl;
 	stackStringptr->push("a");
 	stackStringptr->push("b");
 	stackStringptr->push("c");
 	stackStringptr->push("d");
+	/*
 	stackIntptr->push(1);
 	stackIntptr->push(2);
 	stackIntptr->push(3);
