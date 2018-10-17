@@ -26,13 +26,15 @@ public:
 
 	//push
 	//returns true if successful
-	bool push(const T& newElement)
+	//should be void
+	void push(const T& newElement)//changed to void ~hg
 	{
 		return Linkedlist::AddFirst(newElement);
 	}
 
-	//Pop
-	bool pop()
+	//Pop 
+	//return type should be t
+	T pop()//changed to T ~hg
 	{
 		return Linkedlist::removeFirst();
 	}
@@ -44,36 +46,18 @@ public:
 	}
 
 	//Prints stack from top to bottom
-	void printStacks()
+	void printStack()
 	{
 		for (int i = 1; i < getSize() + 1; i++)
 		{
 			cout << getEntry(i) << endl;
 		}
 	}
-
-	//get first node item
-	T getFirst()
-	{
-		return Linkedlist::getEntry(1);
-	}
-
-	//get last node item
-	T getLast()
-	{
-		return Linkedlist::getEntry(HeadNode.getItemCount());
-	}
-
+	
 	//print first element of stack
-	void printFirst()
+	void stackTop()
 	{
-		cout << getFirst() << endl;
-	}
-
-	//print last element of stack
-	void printLast()
-	{
-		cout << getLast() << endl;
+		cout << Linkedlist::getEntry(0) << endl;
 	}
 
 	//get total item counts 
