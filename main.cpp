@@ -2,82 +2,91 @@
 #include <string>
 #include "Node.h"
 #include "HeadNode.h"
-#include "Stack.h"
+#include "Queue.h"
 #include "LinkedList.h"
 #include "Currency.h"
-
 using namespace std;
 
 //Group Members: Haddar Goldstein and Jan To Tong
 
-void getEntry();
-
 int main()
 {
-	//First, Linkedlist
-	//create linked list
-	Linkedlist<string> *listptr;
+	cout << "Queue:" << endl;
+	Queue<string> *QueueStringptr;
+	Queue<int> *QueueIntptr;
+	Queue<Dollar*> *QueueDollar; //dollar address being pointed to
 
-	//Added chain 1 and 2 to list
-	listptr = new Linkedlist<string>();
-	listptr->Add(1, "Chain 1"); //starts at 1, refer to setItemCount in linkedlist
-	listptr->Add(2, "Chain 2");
-	//display
-	cout << "First layer of Linkedlist" << endl;
-	cout << "Result: " << listptr->getEntry(1) << endl;
-	//second layer
-	cout << "Second layer of Linkedlist" << endl;
-	cout << "Result: " << listptr->getEntry(2) << endl;
-	//end of linkedlist
-
+	QueueIntptr = new Queue<int>();
+	QueueStringptr = new Queue<string>();
+	QueueDollar = new Queue<Dollar*>();  //Queuedollar is a double pointer and refers to the address 
 	
-	//beggining of stack
-	Stack<string> *stackStringptr;
-	Stack<int> *stackIntptr;
-	Stack<Dollar*> *stackCurrency;
+	//demonstrate enqueue
+	cout << "enqueue Alpha, Beta, Charlie ,Delta in string pointer " << endl;
+	QueueStringptr->enqueue("Alpha");
+	QueueStringptr->enqueue("Beta");
+	QueueStringptr->enqueue("Charlie");
 
-	stackIntptr = new Stack<int>();
-	stackStringptr = new Stack<string>();
-	stackCurrency = new Stack<Dollar*>();
+	cout << "enqueue 1,2,3,4 in int pointer" << endl;
+	QueueIntptr->enqueue(1);
+	QueueIntptr->enqueue(2);
+	QueueIntptr->enqueue(3);
 	
-	/*
-	cout << "Will now push A,B,C,D " << endl;
-	stackStringptr->push("a");
-	stackStringptr->push("b");
-	stackStringptr->push("c");
-	stackStringptr->push("d");
-	/*
-	stackIntptr->push(1);
-	stackIntptr->push(2);
-	stackIntptr->push(3);
-	stackIntptr->push(4);
-	stackCurrency->push(new Dollar(0, 0));//start with 0
-	//Now printing stacks
-	cout << "Printing Stacks:" << endl;
-	stackStringptr->printStack();
-	stackIntptr->printStack();
-	stackCurrency->printStack();
-	cout << "Will show pop now:" << endl;
-	stackStringptr->pop();
-	stackStringptr->pop();
-	stackIntptr->pop();
-	stackIntptr->pop();
-	stackIntptr->pop();
-	stackCurrency->pop();
-	cout << "Printing Stacks:" << endl;
-	stackStringptr->printStack();
-	stackIntptr->printStack();
-	stackCurrency->printStack();
-	//Crash code:
-	stackStringptr.getLength();
-	//remove everything
-	delete stackStringptr;
-	delete stackIntptr;
-	delete stackCurrency;
-	stackCurrency = nullptr;
-	stackIntPointer = nullptr;
-	stackStringptr = nullptr;
-	*/
+	cout << "enqueue 5 Dollars 50 cents in pointer" << endl;
+	QueueDollar->enqueue(new Dollar(5, 50));
+	QueueDollar->enqueue(new Dollar(2, 40)); 
+
+	//Now printing Queues
+	cout << endl << "Printing Queues:" << endl;
+	QueueStringptr->printQueue();
+	QueueIntptr->printQueue();
+	QueueDollar->printQueue();
+
+	//demonstrate dequeue
+	cout << endl<< "Will show dequeue now:" << endl;
+	QueueStringptr->dequeue();
+	QueueIntptr->dequeue();
+	QueueDollar->dequeue(); //will show nothing since only currency is dequeueped
+	
+	cout << "Printing Queues:" << endl;
+	QueueStringptr->printQueue();
+	QueueIntptr->printQueue();
+	QueueDollar->printQueue();
+
+	//Will now enqueue to show enqueue adds at the rear
+	cout << endl << "Enqueued string 'Delta', int 4, and 6 Dollars 69 Cents" << endl;
+	QueueStringptr->enqueue("Delta");
+	QueueIntptr->enqueue(4);
+	QueueDollar->enqueue(new Dollar(6, 69));
+	cout << endl << "Printing Queues:" << endl;
+	QueueStringptr->printQueue();
+	QueueIntptr->printQueue();
+	QueueDollar->printQueue();
+
+	cout << endl << "Will now display front and rear:" << endl<<endl<< "Front: " <<endl;
+	cout<< QueueStringptr->front() << endl;
+	cout << QueueIntptr->front() << endl; 
+	cout << QueueDollar->front() << endl << endl << "Rear: " << endl;
+	cout << QueueStringptr->rear() << endl;
+	cout << QueueIntptr->rear() << endl;
+	cout << QueueDollar->rear() << endl;
+
+	cout << endl << "Will now display Empty:" << endl;
+	QueueStringptr->empty();
+	QueueIntptr->empty();
+	QueueDollar->empty();
+	QueueStringptr->printQueue();//shouldnt show anything
+	QueueIntptr->printQueue();
+	QueueDollar->printQueue();
+
+	//Crash code: (Code that will crash)
+	//QueueStringptr.getLength(); //Can't use linked list function with Queue object
+
+	//remove everything because c++
+	delete QueueStringptr;
+	delete QueueIntptr;
+	delete QueueDollar;
+	QueueDollar = nullptr;
+	QueueIntptr = nullptr;
+	QueueStringptr = nullptr;
 	system("pause");
-	
 };
