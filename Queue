@@ -31,24 +31,32 @@ public:
 		return Linkedlist<T>::removeFirst();
 	}
 
-	void front()
+	T front()
 	{
 		return Linkedlist<T>::getEntry(1);
 	}
 
-	void rear()
+	T rear()
 	{
 		return Linkedlist<T>::getLastEntry();
 	}
 
 	void empty()
 	{
-		return  Linkedlist<T>::isEmpty();
+		return  Linkedlist<T>::Empty();
 	}
 
 	int getSize()
 	{
 		return Linkedlist<T>::getLength();
+	}
+
+	void printQueue()
+	{
+		for (int i = 1; i < getSize() + 1; i++)
+		{
+			cout << Linkedlist<T>::getEntry(i) << endl;
+		}
 	}
 };
 #endif
