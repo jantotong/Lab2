@@ -11,7 +11,6 @@ class Linkedlist
 protected:
 	HeadNode<T> headNode;
 
-
 	Node<T> *getNodeAt(int position) const
 	{
 		//Counting from the beginning of the chain
@@ -102,7 +101,7 @@ public:
 	}
 
 	//Add anywhere
-	bool Add(int newPosition, const T& newEntry)
+	void Add(int newPosition, const T& newEntry)
 	{
 		//Check if item exist in position
 		bool PositionExist = (newPosition >= 1) && (newPosition <= (headNode.getItemCount()) + 1);
@@ -137,32 +136,30 @@ public:
 			//Setting tail pointer
 			headNode.setLast(getNodeAt(headNode.getItemCount()));
 		}
-
-		return PositionExist;
 	}
 
 	//Adding to first of chain
-	bool AddFirst(const T& newEntry)
+	void AddFirst(const T& newEntry)
 	{
 		return Add(1, newEntry);
 	}
 
 	//Adding to last of chain
-	bool AddLast(const T& newEntry)
+	void AddLast(const T& newEntry)
 	{
 		return Add(headNode.getItemCount() + 1, newEntry);
 	}
 
 	//Delete anywhere
-	bool remove(int position)
+	void remove(int position)
 	{
 		//temp memoery Pointer for 
 		Node<T>* currentPointer = nullptr;
 
 		//Check if the node exist
-		bool PositionExist = (position >= 1) && (position <= headNode.getItemCount());
 
-		if (PositionExist)
+
+		if (position >= 1 && position <= headNode.getItemCount())
 		{
 			//If the node is at the beginning of chain
 			if (position == 1)
@@ -197,17 +194,16 @@ public:
 			headNode.setLast(getNodeAt(headNode.getItemCount()));
 		}
 
-		return PositionExist;
 	}
 
 	//Removes first entry; used for pop
-	bool removeFirst()
+	void removeFirst()
 	{
 		return remove(1);
 	}
 
 	//Removes last entry
-	bool removeLast()
+	void removeLast()
 	{
 		return remove(headNode.getItemCount());
 	}
@@ -237,6 +233,12 @@ public:
 			string NoExist = "Position doesn't exist\n";
 			throw NoExist;
 		}
+	}
+
+	//Get last Entry
+	T getLastEntry()
+	{
+		return getEntry(headNode.getItemCount());
 	}
 };
 #endif
