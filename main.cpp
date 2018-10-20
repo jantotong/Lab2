@@ -21,17 +21,17 @@ int main()
 	QueueDollar = new Queue<Dollar*>();  //Queuedollar is a double pointer and refers to the address 
 	
 	//demonstrate enqueue
-	cout << "enqueue Alpha, Beta, Charlie ,Delta in string pointer " << endl;
+	cout << "Enqueue Alpha, Beta, Charlie ,Delta in string pointer " << endl;
 	QueueStringptr->enqueue("Alpha");
 	QueueStringptr->enqueue("Beta");
 	QueueStringptr->enqueue("Charlie");
 
-	cout << "enqueue 1,2,3,4 in int pointer" << endl;
+	cout << "Enqueue 1,2,3,4 in int pointer" << endl;
 	QueueIntptr->enqueue(1);
 	QueueIntptr->enqueue(2);
 	QueueIntptr->enqueue(3);
 	
-	cout << "enqueue 5 Dollars 50 cents in pointer" << endl;
+	cout << "Enqueue 5 Dollars 50 cents in pointer" << endl;
 	QueueDollar->enqueue(new Dollar(5, 50));
 	QueueDollar->enqueue(new Dollar(2, 40)); 
 
@@ -42,7 +42,7 @@ int main()
 	QueueDollar->printQueue();
 
 	//demonstrate dequeue
-	cout << endl<< "Will show dequeue now:" << endl;
+	cout << endl<< "Will dequeue once now:" << endl;
 	QueueStringptr->dequeue();
 	QueueIntptr->dequeue();
 	QueueDollar->dequeue(); //will show nothing since only currency is dequeueped
@@ -62,6 +62,7 @@ int main()
 	QueueIntptr->printQueue();
 	QueueDollar->printQueue();
 
+	//front and rear
 	cout << endl << "Will now display front and rear:" << endl<<endl<< "Front: " <<endl;
 	cout<< QueueStringptr->front() << endl;
 	cout << QueueIntptr->front() << endl; 
@@ -69,7 +70,8 @@ int main()
 	cout << QueueStringptr->rear() << endl;
 	cout << QueueIntptr->rear() << endl;
 	cout << QueueDollar->rear() << endl;
-
+	
+	//empty
 	cout << endl << "Will now display Empty:" << endl;
 	QueueStringptr->empty();
 	QueueIntptr->empty();
