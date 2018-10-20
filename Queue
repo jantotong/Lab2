@@ -1,0 +1,54 @@
+#ifndef QUEUE_H
+#define QUEUE_H
+#include "Linkedlist.h"
+
+using namespace std;
+template <class T>
+class Queue : protected Linkedlist <T>
+{
+protected:
+	//inheritting from Linkedlist 
+
+public:
+	//Constructors
+	Queue()
+	{
+		Linkedlist<T>::Linkedlist(); //create and empty linklist using constructor of base class
+	}
+	//Copy Constructor
+	Queue(const Queue<T>& aQueue)
+	{
+		Linkedlist::Linkedlist(aQueue);
+	}
+
+	void enqueue(const T& newElement)
+	{
+		return Linkedlist<T>::AddLast(newElement);
+	}
+
+	void dequeue()
+	{
+		return Linkedlist<T>::removeFirst();
+	}
+
+	void front()
+	{
+		return Linkedlist<T>::getEntry(1);
+	}
+
+	void rear()
+	{
+		return Linkedlist<T>::getLastEntry();
+	}
+
+	void empty()
+	{
+		return  Linkedlist<T>::isEmpty();
+	}
+
+	int getSize()
+	{
+		return Linkedlist<T>::getLength();
+	}
+};
+#endif
