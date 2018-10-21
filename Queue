@@ -26,7 +26,7 @@ public:
 		return Linkedlist<T>::AddLast(newElement);
 	}
 
-	void dequeue()
+	void dequeue() //Change void to T
 	{
 		return Linkedlist<T>::removeFirst();
 	}
